@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TypeAcountModel>
+@{
+    ViewData["Title"] = "Tipos de Cuentas";
+}
+
+<h1>Tipos de Cuenta</h1>
+<h5>Aquí se listan los tipos de cuenta que registraste</h5>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Crear nuevo</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Acciones</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var type in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@type.Id" class="btn btn-primary btn-sm">Editar</a>
+                    <a class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+                <td>
+                    @type.Name
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
